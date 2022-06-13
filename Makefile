@@ -17,6 +17,7 @@ clean:
 
 install: all
 	mkdir -p $(DESTDIR)/$(PREFIX)/local/bin
+	mkdir -p $(DESTDIR)/$(PREFIX)/lib/systemd/system
 	cp -f lowbattery $(DESTDIR)/$(PREFIX)/local/bin
 	chmod 755 $(DESTDIR)/$(PREFIX)/local/bin/lowbattery
 	cp -f lowbattery.service $(DESTDIR)/$(PREFIX)/lib/systemd/system/lowbattery.service
