@@ -1,6 +1,6 @@
 .PHONY: all clean install uninstall
 
-PREFIX = /usr/local
+PREFIX = /usr
 SRC = lowbattery.c
 OBJ = $(SRC:.c=.o)
 
@@ -16,10 +16,10 @@ clean:
 	rm -f lowbattery $(OBJ)
 
 install: all
-	mkdir -p $(DESTDIR)$(PREFIX)/bin
-	cp -f lowbattery $(DESTDIR)$(PREFIX)/bin
-	chmod 755 $(DESTDIR)$(PREFIX)/bin/lowbattery
-	cp -f lowbattery.service /usr/lib/systemd/system/lowbattery.service
-uninstall:
-	rm -f $(DESTDIR)$(PREFIX)/bin/lowbattery
-	rm -f /etc/systemd/system/lowbattery.service
+	mkdir -p $(DESTDIR)/$(PREFIX)/local/bin
+	cp -f lowbattery $(DESTDIR)/$(PREFIX)/local/bin
+	chmod 755 $(DESTDIR)/$(PREFIX)/local/bin/lowbattery
+	cp -f lowbattery.service $(DESTDIR)/$(PREFIX)/lib/systemd/system/lowbattery.service
+#uninstall:
+	#rm -f $(DESTDIR)/$(PREFIX)/local/bin/lowbattery
+	#rm -f /etc/systemd/system/lowbattery.service
